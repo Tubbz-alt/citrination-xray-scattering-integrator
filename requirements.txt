@@ -1,0 +1,4 @@
+pypaws==0.7.11
+pyfai==0.12.0
+tifffile
+pypif
