@@ -104,6 +104,6 @@ def convert(files=[],pixel_size=None,detector_distance=None,wavelength=None,
     
     paw.execute()
 
-    return paw.get_output('collect_pifs','pifs')
+    return paw.get_output('collect_pifs','data_list')
 
 
