@@ -1,4 +1,5 @@
-pypaws==0.7.11
-pyfai==0.12.0
+pypaws==0.7.12
+numpy
+pyfai
 tifffile
 pypif
