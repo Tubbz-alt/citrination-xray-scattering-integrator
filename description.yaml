@@ -1,0 +1,48 @@
+# This file describes the converter and its arguments to tell the driver how to construct the UI
+
+## The first block gives the name, namespace, version, and description of the converter
+name: citrination_integrator
+namespace: scattering 
+displayName: "X-ray scattering spectrum integrator"
+version: auto 
+description: Given a .tif image file and integration parameters, this ingester produces a PIF record containing integrated intensity data.
+
+## Supported primitive types:
+##  - String
+##  - Boolean
+##  - Integer
+##  - Real (which is a float)
+## There is also support for fixed-size lists with the form List[size][type] 
+## Multidimensional lists are not currently supported
+# defaults are only supported for required arguments
+
+arguments:
+- name: pixel_size 
+  desc: the x and y dimensions of the pixel, in meters
+  type: List[2][Real] 
+  required: true
+
+- name: detector_distance
+  desc: the detector distance, in meters 
+  type: Real 
+  required: true 
+
+- name: wavelength 
+  desc: the x-ray wavelength, in meters 
+  type: Real 
+  required: true 
+
+- name: poni 
+  desc: the point of normal incidence on the detector plane (in meters): the point at which the detector plane normal vector points to the sample, with the origin at the bottom left corner of the detector from the point of view of the sample 
+  type: List[2][Real] 
+  required: true
+
+- name: rotations 
+  desc: the three sample-centric rotations (radians) specified by the PONI format (http://pyfai.readthedocs.io/en/latest/usage/tutorial/Geometry/geometry.html)
+  type: List[3][Real] 
+  default:
+    - 0.0
+    - 0.0
+    - 0.0 
+  required: true
+
