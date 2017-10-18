@@ -38,7 +38,7 @@ arguments:
   required: true 
 
 - name: poni 
-  desc: the point of normal incidence on the detector plane (in meters): the point at which the detector plane normal vector points to the sample, with the origin at the bottom left corner of the detector from the point of view of the sample 
+  desc: "the point of normal incidence on the detector plane (in meters): the point at which the detector plane normal vector points to the sample, with the origin at the bottom left corner of the detector from the point of view of the sample"
   type: List[2][Real] 
   default: 
     - 0.05 
@@ -46,7 +46,7 @@ arguments:
   required: true
 
 - name: rotations 
-  desc: the three sample-centric rotations (radians) specified by the PONI format (http://pyfai.readthedocs.io/en/latest/usage/tutorial/Geometry/geometry.html)
+  desc: "the three sample-centric rotations (radians) specified by the PONI format (http://pyfai.readthedocs.io/en/latest/usage/tutorial/Geometry/geometry.html)"
   type: List[3][Real] 
   default:
     - 0.0
