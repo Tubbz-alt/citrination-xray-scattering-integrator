@@ -2,7 +2,6 @@ from __future__ import print_function
 import unittest
 import os
 
-import paws.api
 import test_convert
 
 runner = unittest.TextTestRunner(verbosity=3)
