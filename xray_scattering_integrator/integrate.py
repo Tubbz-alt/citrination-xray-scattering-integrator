@@ -53,7 +53,7 @@ def convert(files=[],pixel_size=None,detector_distance=None,wavelength=None,
     # prepare environment
     paw.activate_op('PROCESSING.INTEGRATION.BuildPyFAIIntegrator')
     paw.activate_op('EXECUTION.BATCH.BatchFromFiles')
-    paw.activate_op('IO.IMAGE.LoadTif')
+    paw.activate_op('IO.IMAGE.FabIOOpen')
     paw.activate_op('PROCESSING.INTEGRATION.ApplyIntegrator1d')
     paw.activate_op('PACKAGING.PIF.Pif1dScatteringIntensity')
     paw.activate_op('PACKAGING.BATCH.BuildListFromBatch')
@@ -66,14 +66,14 @@ def convert(files=[],pixel_size=None,detector_distance=None,wavelength=None,
     
     # set up integration workflow
     paw.select_wf('integrate')
-    paw.add_op('load_tif','IO.IMAGE.LoadTif')
+    paw.add_op('load_tif','IO.IMAGE.FabIOOpen')
     paw.add_op('integrate','PROCESSING.INTEGRATION.ApplyIntegrator1d')
     paw.add_op('build_pif','PACKAGING.PIF.Pif1dScatteringIntensity')
     # expect the file path and integrator to be set by batch controller at runtime
     paw.set_input('load_tif','file_path',None,'runtime')
     paw.set_input('integrate','integrator',None,'runtime')
     # expect image data to be passed down from load_tif
-    paw.set_input('integrate','data','load_tif.outputs.image_data','workflow item')
+    paw.set_input('integrate','image_data','load_tif.outputs.image_data','workflow item')
     # name the pif with the filename, and feed it the integrated q, I(q)
     paw.set_input('build_pif','uid','load_tif.outputs.filename','workflow item')
     paw.set_input('build_pif','q_I','integrate.outputs.q_I','workflow item')

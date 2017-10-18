@@ -1,4 +1,4 @@
-pypaws==0.7.14
+pypaws==0.7.16
 numpy
 pyfai
 tifffile
