@@ -8,7 +8,7 @@ setup(name='citrination-xray-scattering-integrator',
     author_email='lenson@slac.stanford.edu',
     packages=find_packages(),
     install_requires=[
-        'pypif','pypaws','pyfai','tifffile'
+        'pypif','pypaws','pyfai','fabio','numpy'
     ],
     entry_points={
         'citrine.dice.converter': [

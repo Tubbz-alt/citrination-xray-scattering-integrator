@@ -1,5 +1,5 @@
 pypaws==0.7.16
 numpy
 pyfai
-tifffile
+fabio
 pypif
