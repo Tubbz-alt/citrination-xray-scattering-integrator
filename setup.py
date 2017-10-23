@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='citrination-xray-scattering-integrator',
-    version='0.0.1',
+    version='0.0.2',
     url='https://github.com/slaclab/citrination-xray-scattering-integrator.git`',
     description='integrates .tif images, produces PIF records from them',
     author='Lenson A. Pellouchoud',
